@@ -56,11 +56,11 @@ jobs:
       uses: actions/download-artifact@main
       with:
         name: webpack artifacts
-          path: public
-      - name: Build container image
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{github.actor}}
+        path: public
+    - name: Build container image
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{github.actor}}
         password: ${{secrets.GITHUB_TOKEN}}
         registry: docker.pkg.github.com
         repository: piraces/github-actions-for-packages/tic-tac-toe
